@@ -4,40 +4,90 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    //sensitivity for Y and X axis
-    public float sensX;
-    public float sensY;
+    [Header("Movement")]
+    public float moveSpeed;
 
-    // player orientation
+    public float groundDrag;
+
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool grounded;
+
     public Transform orientation;
-    
-    //rotation of camera
-    float xRotation;
-    float yRotation;
+
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
+
+    Rigidbody rb;
 
     private void Start()
     {
-        //lock the cursor in the middle of the scree and make it invisible
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
     private void Update()
     {
-        //get mouse input 
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        //check if the player is on the ground, to apply drag and jump
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        
+        MyInput();
 
-        yRotation += mouseX;
+        SpeedControl();
 
-        xRotation -= mouseY;
+        //apply drag
+        if(grounded == true)
+        {
+            rb.drag = groundDrag;
+        }
+        else
+        {
+            rb.drag = 0;
+        }
 
-        //locking rotation to 180 degrees
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        //rotate cam and orientation
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
     }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
+    private void MyInput()
+    {
+        // getting raw input to move the player
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+
+    }
+
+    private void MovePlayer()
+    {
+        //calculate movement direction
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+    }
+
+    private void SpeedControl()
+    {
+        //flat velocity of the rigid body
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        //limit velocity if it is greater than movement speed
+        if(flatVel.magnitude > moveSpeed)
+        {
+            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+        }
+
+
+
+    }
+
+
 }
