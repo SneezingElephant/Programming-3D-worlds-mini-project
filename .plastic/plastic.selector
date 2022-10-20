@@ -1,4 +1,0 @@
-repository "3D mini project@Sneezing_Elephant@cloud"
-  path "/"
-    br "/main"
-    co "/main"
