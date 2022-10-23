@@ -346,22 +346,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/StarterAssets/FirstPersonController/Scenes
+    - Assets/Assets/Enemies
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/StarterAssets/FirstPersonController/Scenes
+  - Assets/Assets/Enemies
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\University shit\Unity Projects\3Dworld mini project\Programming-3D-worlds-mini-project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 20}
-    m_SelectedIDs: 60d00100
-    m_LastClickedID: 118880
-    m_ExpandedIDs: 00000000e27100007ea3000062d0010000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 38700000
+    m_LastClickedID: 28728
+    m_ExpandedIDs: 00000000f06f00001870000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -389,7 +389,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e2710000
+    m_ExpandedIDs: 00000000f06f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -414,8 +414,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ea640000
-    m_LastClickedInstanceID: 25834
+    m_SelectedInstanceIDs: bcf5ffff
+    m_LastClickedInstanceID: -2628
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000245b000056590000
     m_RenameOverlay:
@@ -516,10 +516,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 2aa8ffff72a8ffffbaa8ffff02a9ffff96a9ffff80e6ffff4ef7ffffea640000986f0000e26f0000f87000009671000014cb0100660b0200
+      scrollPos: {x: 0, y: 3124}
+      m_SelectedIDs: 90630000
+      m_LastClickedID: 25488
+      m_ExpandedIDs: 68f9ffffb8620000346a00007a6d0000da6e0000786f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -801,9 +801,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.15825, y: 2.527684, z: 6.1075325}
+    m_Target: {x: 0.02699995, y: 1.6310003, z: 0.12400007}
     speed: 2
-    m_Value: {x: 7.15825, y: 2.527684, z: 6.1075325}
+    m_Value: {x: 0.02699995, y: 1.6310003, z: 0.12400007}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -849,13 +849,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.016016904, y: -0.42332765, z: -0.0075149327, w: -0.9058529}
+    m_Target: {x: -0.005804168, y: 0.9925655, z: -0.052465115, w: -0.11009222}
     speed: 2
-    m_Value: {x: 0.014657501, y: -0.42331967, z: -0.0068795355, w: -0.90583575}
+    m_Value: {x: -0.005803899, y: 0.9925195, z: -0.052462682, w: -0.11008712}
   m_Size:
-    m_Target: 7.799986
+    m_Target: 17.242052
     speed: 2
-    m_Value: 8.167524
+    m_Value: 16.49957
   m_Ortho:
     m_Target: 0
     speed: 2
