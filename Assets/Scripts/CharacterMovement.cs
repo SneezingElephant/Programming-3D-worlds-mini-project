@@ -40,7 +40,7 @@ public class CharacterMovement : MonoBehaviour
     private void Update()
     {
         //check if the player is on the ground, to apply drag and jump
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 1f + 0.2f, whatIsGround);
         
         MyInput();
 
