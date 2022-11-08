@@ -8,7 +8,13 @@ public class Spawner : MonoBehaviour
     public float spawnTime = 6f;            // How long between each spawn.
     private Vector3 spawnPosition;
 
-    
+    public int score;
+
+    private void Update()
+    {
+        
+    }
+
     // Use this for initialization
     void Start()
     {

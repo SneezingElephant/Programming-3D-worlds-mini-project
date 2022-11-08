@@ -7,14 +7,22 @@ public class Target : MonoBehaviour
     private static float minHealth = 10f;
     private static float maxHealth = 99f;
 
+    private int killReward = 1;
 
     public float health;
 
     
+    private void Update()
+    {
+        
+    }
+
 
     private void Start()
     {
         health = Random.Range(minHealth, maxHealth);
+        
+       
     }
 
     public void TakeDamage(float amount)
@@ -22,7 +30,8 @@ public class Target : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            Die();
+            ScoreCounter.score += killReward;
+            Die(); 
         }
 
     }
@@ -30,5 +39,6 @@ public class Target : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        
     }
 }
