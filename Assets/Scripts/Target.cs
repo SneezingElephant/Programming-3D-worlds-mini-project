@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public float health = 50f;
+    private static float minHealth = 10f;
+    private static float maxHealth = 99f;
+
+
+    public float health;
+
+    
+
+    private void Start()
+    {
+        health = Random.Range(minHealth, maxHealth);
+    }
 
     public void TakeDamage(float amount)
     {
@@ -13,6 +24,7 @@ public class Target : MonoBehaviour
         {
             Die();
         }
+
     }
 
     void Die()
