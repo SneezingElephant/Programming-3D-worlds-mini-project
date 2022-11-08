@@ -50,6 +50,7 @@ public class CharacterMovement : MonoBehaviour
         if(grounded == true)
         {
             rb.drag = groundDrag;
+            Debug.Log("I am grounded!");
         }
         else
         {
