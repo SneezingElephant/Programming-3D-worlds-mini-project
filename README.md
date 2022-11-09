@@ -20,7 +20,7 @@ The main parts of the game are:
   
   •	Gun – A gun that shoots a raycast of 100f when you click Fire1 button, which gives 10 damage to any object it hits that has the Target.cs script on it. 
 
-#Game features:
+# Game features:
   
   •	Positions of enemies are randomly selected each time helping with replayability.
   
@@ -28,7 +28,7 @@ The main parts of the game are:
   
   •	The game keeps track of a score
 
-#Project parts:
+# Project parts:
   
   •	Scripts
     
