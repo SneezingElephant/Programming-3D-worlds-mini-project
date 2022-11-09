@@ -19,14 +19,16 @@ The main parts of the game are:
   •	Enemy Spawner – A spawner that randomly spawns the enemies in a set range. 
   
   •	Gun – A gun that shoots a raycast of 100f when you click Fire1 button, which gives 10 damage to any object it hits that has the Target.cs script on it. 
-Game features:
+
+#Game features:
   
   •	Positions of enemies are randomly selected each time helping with replayability.
   
   •	Enemies have randomly assigned health so you never know how many shots it takes to kill one.
   
   •	The game keeps track of a score
-Project parts:
+
+#Project parts:
   
   •	Scripts
     
