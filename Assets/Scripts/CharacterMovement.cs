@@ -9,6 +9,14 @@ public class CharacterMovement : MonoBehaviour
 
     public float groundDrag;
 
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    bool readyToJump = true;
+
+    [Header("Keybinds")]
+    public KeyCode jumpKey = KeyCode.Space;
+    
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
@@ -32,7 +40,7 @@ public class CharacterMovement : MonoBehaviour
     private void Update()
     {
         //check if the player is on the ground, to apply drag and jump
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 1f + 0.2f, whatIsGround);
         
         MyInput();
 
@@ -42,6 +50,7 @@ public class CharacterMovement : MonoBehaviour
         if(grounded == true)
         {
             rb.drag = groundDrag;
+            Debug.Log("I am grounded!");
         }
         else
         {
@@ -63,6 +72,15 @@ public class CharacterMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        //when to jump
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        {
+            readyToJump = false;
+            
+            Jump();
+
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     private void MovePlayer()
@@ -70,7 +88,15 @@ public class CharacterMovement : MonoBehaviour
         //calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        //Movement on ground
+        if (grounded)
+        {
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        }
+        else if(!grounded)
+        {
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
     }
 
     private void SpeedControl()
@@ -89,5 +115,16 @@ public class CharacterMovement : MonoBehaviour
 
     }
 
+    private void Jump()
+    {
+        //reset y velocity to make sure player always jumps the exact same height
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void ResetJump()
+    {
+        readyToJump = true;
+    }
 }
