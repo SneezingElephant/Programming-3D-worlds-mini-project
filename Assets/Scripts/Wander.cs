@@ -30,10 +30,9 @@ public class Wander : MonoBehaviour
 		controller.SimpleMove(forward * speed);
 	}
 
-	/// <summary>
-	/// Repeatedly calculates a new direction to move towards.
-	/// Use this instead of MonoBehaviour.InvokeRepeating so that the interval can be changed at runtime.
-	/// </summary>
+	
+	// Repeatedly calculates a new direction to move towards
+	
 	IEnumerator NewHeading()
 	{
 		while (true)
@@ -43,9 +42,9 @@ public class Wander : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// Calculates a new direction to move towards.
-	/// </summary>
+	
+	// Calculates a new direction to move towards.
+	
 	void NewHeadingRoutine()
 	{
 		var floor = transform.eulerAngles.y - maxHeadingChange;

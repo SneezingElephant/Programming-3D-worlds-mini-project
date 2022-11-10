@@ -26,6 +26,8 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
+        
+        //Determine the position of where the enemy spawns
         spawnPosition.x = Random.Range(-40, 60);
         spawnPosition.y = 0.5f;
         spawnPosition.z = Random.Range(-40, 60);

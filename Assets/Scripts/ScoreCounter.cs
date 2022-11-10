@@ -6,12 +6,13 @@ using TMPro;
 
 public class ScoreCounter : MonoBehaviour
 {
-
+    //Acess the score tally text box
     public TextMeshProUGUI scoreViz;
 
+    
     public static int score;
 
-    // Update is called once per frame
+   
     void Update()
     {
         DisplayScore();
@@ -22,7 +23,7 @@ public class ScoreCounter : MonoBehaviour
     {
 
         
-        
+        //Display the score saved in score variable
         scoreViz.text = "Your total score is;" + " " + score.ToString() + " " + "!";
 
     }

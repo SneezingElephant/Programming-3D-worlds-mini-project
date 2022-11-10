@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class FellOffTheMap : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    //Destroy the game object if they fall off the map
     void Update()
     {
         if (gameObject.transform.position.y < -50f)
